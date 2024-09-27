@@ -1,2 +1,3 @@
 第一週 講解如何使用Codespaces並留下上字幕的作業。
 第二週 又講了一次如何使用Codespaces，新增了一張程式碼的截圖並新增了該程式碼。
+第三週 下載了Solvespace並教學了大致上的使用方式，用Solvespace練習畫HW1的零件。
