@@ -196,10 +196,13 @@ openByGet();
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/7pzXlk01ZKM" width="400"></iframe></p>
 <h3>w10</h3>
 <script src="/static/jsc3d.js" type="text/javascript"></script>
-<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas><!-- 可以添加更多的 canvas --></div>
-<div style="width: 400px; height: 70px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id='"b' option="" type="text"/>PointWireframeSmoothDefinition:<br/><select onchange="changeOption('BackgroundColor2',this.value)" onchckclr2="" type="color">Render Mode:</select><select id="render" onchange="changeOption('RenderMode',this.value)">
+<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <!-- 可以添加更多的 canvas --></div>
+<div style="width: 400px; height: 70px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
 <option>Flat</option>
-ange="changeOption('Definition',this.value)"&gt;
+<option>Point</option>
+<option>Wireframe</option>
+<option>Smooth</option>
+</select>Definition:<select id="defini" onchange="changeOption('Definition',this.value)">
 <option>Standard</option>
 <option>low</option>
 <option>high</option>
@@ -248,14 +251,13 @@ function openByUrl(){
     opt.SceneUrl = url;
     // 可以添加更多的 STL URL
     readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
-readSTLfile(opt, 'cv2');
+    readSTLfile(opt, 'cv2'); // 第二個 canvas
 }
 
 function openByGet(){
     var urls = [
         "https://s104.cycu.org/~41223226/41223226-w10.stl",
-"https://s104.cycu.org/~41223226/41223226-w10.stl"
-       
+        "https://s104.cycu.org/~41223226/41223226-w10.stl"
     ];
     var opt = getOptions();
     urls.forEach((url, index) => {
@@ -268,7 +270,8 @@ openByGet();
 </script>
 <p><a href="https://drive.google.com/file/d/1I3-PDeh12JuB0zG_-yheH9JMY4mR1pGV/view?usp=drive_link">41223226-w10.slvs</a></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/oq2BuVH2aYw" width="400"></iframe></p>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/tktzjTU5A3c" width="400"></iframe></p><h1>HW2</h1>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/tktzjTU5A3c" width="400"></iframe></p>
+<p>https://s104.cycu.org/~41223226/41223226-w10.stl</p><h1>HW2</h1>
 <p>Homework 2 (10%):</p>
 <p style="padding-left: 30px;">利用 Solvespace 與 NX 建立 <a href="https://mde.tw/cad2024/content/BonW.html">Balance on Wheels</a> 組立件</p>
 <hr/>
