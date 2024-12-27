@@ -577,7 +577,7 @@ openByGet();
 <p><span></span></p>
 <p><span></span></p>
 <p><a href="https://drive.google.com/file/d/1Rowi79QAYdYDrmRPGfNUJYwnhlHUafAu/view?usp=drive_link">41223226_w16_exam1.7z</a></p>
-<p></p>
+<p><a href="https://docs.google.com/spreadsheets/d/1t9X0ogCnLBFq6Dv2zB_YdqKjFvhGqsSL/edit?usp=drive_link&amp;ouid=111559088534208205873&amp;rtpof=true&amp;sd=true">41223226_w16_exam_尺寸表格</a></p>
 <p></p>
 <script src="/static/jsc3d.js" type="text/javascript"></script>
 <div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv3" style="border: 1px solid;" width="400"></canvas> <!-- 可以添加更多的 canvas --></div>
@@ -656,8 +656,7 @@ openByGet();
 </script>
 <p></p>
 <p></p>
-<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/tJyuAi4J-Sc" width="400"></iframe></span></p>
-<h1>HW3</h1>
+<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/tJyuAi4J-Sc" width="400"></iframe></span></p><h1>HW3</h1>
 <p>Homework 3 (20%):</p>
 <p style="padding-left: 30px;">建立 <a href="https://mde.tw/cad2024/content/BonW.html">Balance on Wheels</a> 控制系統設計模擬場景</p>
 <p style="padding-left: 30px;"><a href="https://github.com/mdecycu/Balance_On_Wheels">https://github.com/mdecycu/Balance_On_Wheels</a></p>
@@ -790,7 +789,46 @@ openByGet();
 <p><a href="https://drive.google.com/file/d/1p56F1MD_xGl3lscVDxl7KRxtYyBx3xNf/view?usp=drive_link">41223226_w16_exam3.7z</a></p>
 <p><span></span></p>
 <p><span></span></p>
-<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/uttPrYaMud0" width="400"></iframe></span></p><h1>Final Report</h1>
+<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/uttPrYaMud0" width="400"></iframe></span></p>
+<p><span></span></p>
+<p><span>Python ZMQ remote API 控制程式如下:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># pip install pyzmq cbor keyboard
+from coppeliasim_zmqremoteapi_client import RemoteAPIClient
+import keyboard
+ 
+# Connecting to the CoppeliaSim server
+client = RemoteAPIClient('localhost', 23000)
+ 
+print('Program started')
+sim = client.getObject('sim')
+ 
+# Get the handle for the slider (prismatic joint)
+slider = sim.getObject('/Prismatic_joint')
+ 
+# Starting the simulation
+sim.startSimulation()
+print('Simulation started')
+ 
+# Main control loop
+def main():
+    # Keep running until simulation is stopped
+    while True:
+        if keyboard.is_pressed('w'):  # Move slider to -0.15 position
+            print("w is pressed")
+            sim.setJointTargetPosition(slider, -0.15)
+         
+        if keyboard.is_pressed('s'):  # Reset slider to the original position
+            print("s is pressed")
+            sim.setJointTargetPosition(slider, 0.0)  # Reset to the initial position
+ 
+        if keyboard.is_pressed('q'):  # Stop the simulation when 'q' is pressed
+            print("q is pressed - stopping simulation")
+            sim.stopSimulation()
+            break
+ 
+# Start the main control loop
+main()</pre>
+<p></p><h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (30%)</p>
 <p>期末口頭專題報告影片:</p>
 <p style="padding-left: 30px;">......</p>
